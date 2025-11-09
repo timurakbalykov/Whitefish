@@ -7,7 +7,7 @@ sign = 0            # Знак операции
 playGame = True     # Главный цикл
 count = 0           # Количество решенных примеров
 right = 0           # Правильный ответ
-score = 0           # Очки
+score = 0           # Очкииии
 
 print("""Компьютер составляет пример. Введите ответ.
 Для завершения работы введите STOP""")
@@ -18,48 +18,48 @@ while playGame:
     print(f"Количество примеров: {count}")
     print(f"Верных ответов: {right}")
     print("-" * 20)
-    
+
     sign = random.randint(0, 3)
         # 0 - плюс;
-        # 1 - минус; 
+        # 1 - минус;
         # 2 - умножить;
         # 3 - делить.
     if sign == 0:
         z = random.randint(lowDiapazon, highDiapazon)
         x = random.randint(lowDiapazon, z)
-        y = z - x 
+        y = z - x
         if random.randint(0, 1) == 0:
             print(f"Сколько будет {x} + {y} = ?")
         else:
             print(f"Сколько будет {y} + {x} = ?")
-            
+
     elif sign == 1:
         x = random.randint(lowDiapazon, highDiapazon)
         y = random.randint(0, x - lowDiapazon)
-        z = x - y 
+        z = x - y
         print(f"Сколько будет {x} - {y} = ?")
-        
+
     elif sign == 2:
         x = random.randint(1, (highDiapazon - lowDiapazon) // random.randint(1, highDiapazon // 10) + 1)
         y = random.randint(lowDiapazon, highDiapazon) // x
-        z = x * y 
+        z = x * y
         print(f"Сколько будет {x} * {y} = ?")
-        
+
     elif sign == 3:
         x = random.randint(1, (highDiapazon - lowDiapazon) // random.randint(1, highDiapazon // 10) + 1)
         y = random.randint(lowDiapazon, highDiapazon) // x
         if y == 0:
             y = 1
         x = x * y
-        z = x // y 
+        z = x // y
         print(f"Сколько будет {x} / {y} = ?")
-        
+
     user = ""
     while (not user.isdigit()
             and user.upper() != "STOP"
             and user.upper() != "ЫЕЩЗ"):
         user = input("Ваш ответ? ")
-        
+
         if (user.upper() == "HELP"
             or user == "?"
             or user.upper() == "РУЗД"):
@@ -68,7 +68,7 @@ while playGame:
             else:
                 print("Ответ состоит из одной цифры")
             score -= 10
-            
+
         elif (user.upper() != "STOP"
             and user.upper() != "ЫЕЩЗ"):
             playGame = False
@@ -78,7 +78,7 @@ while playGame:
             if (int(user) == z):
                 print("\nПравильно!\n")
                 right += 1
-                score += 10 
+                score += 10
             else:
                 print(f"\nОтвет неправильный... Правильно: {z}")
                 print("вы можете ввести команду HEPL чтобы увидеть подсказку")
